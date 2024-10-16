@@ -1,3 +1,3 @@
 Initialize npm empty project
 
--    npm init
+- npm init
