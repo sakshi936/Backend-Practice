@@ -1,9 +1,9 @@
-class ApiError extends Error {
+class ApiError extends Error {  //The ApiError class extends the built-in Error class
     constructor(
-        statusCode,
-        message= "Something went wrong",
-        errors = [],
-        stack = ""
+        statusCode, //The HTTP status code (e.g., 404, 500) representing the error type.
+        message= "Something went wrong", // default msg, if no message is provided
+        errors = [], //that can hold detailed error information (default empty)
+        stack = ""  //A stack trace, which helps in debugging
     ){
         super(message)
         this.statusCode = statusCode
@@ -13,9 +13,9 @@ class ApiError extends Error {
         this.errors = errors
 
         if (stack) {
-            this.stack = stack
+            this.stack = stack  // if it is provided
         } else{
-            Error.captureStackTrace(this, this.constructor)
+            Error.captureStackTrace(this, this.constructor)  // This is a standard method in JavaScript to capture the error's stack trace,
         }
 
     }
